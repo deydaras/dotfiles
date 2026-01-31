@@ -21,3 +21,4 @@ vim.opt.laststatus = 3
 if vim.fn.isdirectory(tostring(undodir)) == 0 then
   vim.fn.mkdir(undodir, "p")
 end
+

@@ -36,8 +36,8 @@ require("lazy").setup({
   -- { import = "plugins.avante"},
   { import = "plugins.nvimcmp"},
   -- { import = "plugins.snippets"},
-
   { import = "plugins.surround"},
+  -- { import = "plugins.theme"},
   { import = "plugins.autosave"},
   { import = "plugins.gittool"},
   -- { import = "plugins.composer"},
