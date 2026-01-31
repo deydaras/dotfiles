@@ -1,0 +1,38 @@
+layout {
+    default_tab_template {
+        children
+    }
+
+    tab name="Neovim" focus=true {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm" {
+                format_left   "#[fg=#89B4FA,bold]{session} {mode}#[bg=#181825] {tabs}"
+                format_right  "#[fg=#6C7086,bold]{datetime}"
+                format_space  ""
+
+                mode_normal  "#[bg=#89B4FA] "
+                mode_locked  "#[bg=#F38BA8] "
+                mode_resize  "#[bg=#F9E2AF] "
+                mode_pane    "#[bg=#DDB6F2] "
+                mode_tab     "#[bg=#A6E3A1] "
+                mode_scroll  "#[bg=#94E2D5] "
+
+                tab_normal   "#[fg=#6C7086] {name} "
+                tab_active   "#[fg=#9399B2,bold,italic] {name} "
+            }
+        }
+
+        pane {
+            command "nvim"
+        }
+    }
+
+    tab name="Shell" {
+        pane size=1 borderless=true {
+            plugin location="file:~/.config/zellij/plugins/zjstatus.wasm"
+        }
+
+        pane {}
+        pane {}
+    }
+}
