@@ -1,4 +1,3 @@
-# ~/.bashrc
 
 # 1. STOP background processes from running the rest of this script
 [[ $- != *i* ]] && return
