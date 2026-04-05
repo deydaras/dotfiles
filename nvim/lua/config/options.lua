@@ -1,6 +1,6 @@
 local opt = vim.opt
 
-opt. scrolloff = 8
+opt.scrolloff = 8
 opt.number = true
 opt.relativenumber = true
 opt.clipboard = "unnamedplus"

@@ -11,7 +11,6 @@ return {
   opts = function()
     -- highlight for ghost text
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
-
     local cmp      = require("cmp")                  -- import nvim-cmp
     local defaults = require("cmp.config.default")() -- default settings
     local auto_sel = true                            -- enable auto-selection

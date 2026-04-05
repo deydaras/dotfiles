@@ -13,8 +13,13 @@ return{
       { 'j-hui/fidget.nvim', opts = {} },
 
       -- Allows extra capabilities provided by nvim-cmp
-      'hrsh7th/cmp-nvim-lsp',
+      -- 'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/nvim-cmp', -- This was missing!
+      opts =function (_, opts)
+          opts.performance = {
+              max_view_entries = 4,
+          }
+      end
 
     },
     config = function()
@@ -208,6 +213,33 @@ return{
 	      },
 	    },
 	  },
+    -- --- CORE LANGUAGES ---
+      pyright = {},        -- Python
+      clangd = {},         -- C / C++
+      lua_ls = {           -- Lua (with your existing settings)
+        settings = { Lua = { completion = { callSnippet = 'Replace' } } },
+      },
+      ts_ls = {},          -- TypeScript / JavaScript
+      gopls = {},          -- Go
+      rust_analyzer = {},  -- Rust
+
+      -- --- WEB DEVELOPMENT ---
+      html = {},           -- HTML
+      cssls = {},          -- CSS
+      tailwindcss = {},    -- Tailwind CSS
+      jsonls = {},         -- JSON
+      emmet_ls = {},       -- Fast HTML/CSS snippets (the "div>ul>li" magic)
+
+      -- --- DEVOPS & CONFIG ---
+      dockerls = {},                         -- Dockerfiles
+      docker_compose_language_service = {},  -- Docker Compose
+      yamlls = {},                           -- YAML (K8s, CI/CD, etc.)
+      bashls = {},                           -- Bash / Shell scripting
+      terraformls = {},                      -- Terraform / Infrastructure as Code
+
+      -- --- DOCS & DATA ---
+      marksman = {},       -- Markdown (links, headers, completion)
+      sqls = {},           -- SQL
 	  }     
       -- Ensure the servers and tools above are installed
       --

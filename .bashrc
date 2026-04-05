@@ -6,7 +6,7 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
-
+alias gpp='git push origin $(git branch --show-current) && gh pr create --fill'
 alias bashrcv='nvim ~/.bashrc'
 alias bashrcs='source ~/.bashrc'
 alias pacs='sudo pacman -S '

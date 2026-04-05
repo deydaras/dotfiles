@@ -30,6 +30,10 @@ require("lazy").setup({
   { import = "plugins.mason" },
   { import = "plugins.obsidian" },
   -- { import = "plugins.blink" },
+  { import = "plugins.formatting"},
+  -- { import = "plugins.python"},
+
+  -- { import = "plugins.dap"},
   { import = "plugins.term"},
   { import = "plugins.fzf"},
   { import = "plugins.autopairs"},
