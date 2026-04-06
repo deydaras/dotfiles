@@ -1,0 +1,85 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+;; 1. ALIASES (Must be defined before they are used)
+(defalias
+  ;; Tap-Hold Overloads
+  a_m (tap-hold 200 200 r lalt)
+  d_m (tap-hold 200 200 n (layer-toggle num))
+  f_m (tap-hold 200 200 t (layer-toggle char))
+  b_m (tap-hold 200 200 bspc lctl)
+  j_m (tap-hold 200 200 h lctl)
+  k_m (tap-hold 200 200 e lalt)
+  l_m (tap-hold 200 200 i lmet)
+  spc (tap-hold 200 200 spc lsft)
+  cap (tap-hold-press 200 200 esc lctl)
+  ;; Navigation & Selection Macros
+  sln  (macro home S-end)      ;; Select Line
+  swb  C-S-left                ;; Select Word Back
+  swf  C-S-rght                ;; Select Word Forward
+  src  (macro C-c C-f C-v)     ;; Search Selected (Copy, Open Find, Paste)
+  gtb  A-tab                   ;; GUI Tab (Alt+Tab)
+  sft_sw (multi lsft (layer-toggle swedishUpper))
+  col (macro esc S-;) 
+  
+  ;; Left Thumb Layer Activations
+  tchr (layer-toggle char)
+  tnum (layer-toggle num)
+  tnav (layer-toggle nav)
+  ;; Thumb keys mapped to your new image symbol layout (the 'char' layer)
+  fn1 (layer-toggle char) 
+  fn2 (layer-toggle char) 
+)
+
+;; 2. THE SOURCE (46-Key Matrix)
+;; ONLY physical key names go here. No @aliases!
+(defsrc
+  tab  q    w    e    r    t    up        rctl  y    u    i    o    p    bspc
+  lctl a    s    d    f    g    down      ralt  h    j    k    l    ;    '
+  lsft z    x    c    v    b                    n    m    ,    .    /    esc
+                 lmet f1   spc                  ret  f2   rmet
+)
+
+;; 3. YOUR MAIN LAYER
+;; This is where we put your @fn1 and @fn2 aliases
+(deflayer main
+  tab      x      m      l      c      p      @l_m   rctl   q      f      o      u      (unicode ö) (unicode å)
+  _        r      s      n      t      g      @tnum  ralt   b      h      e      i      a           ent
+  @sft_sw  z      v      j      d      w                    y      k      (unicode ä) _      _      _  
+                         @tnav   @tchr  bspc                 @spc    tab    @tnum
+)
+
+
+
+;; 5. CHAR LAYER (Your custom image symbols)
+(deflayer char
+  _        grv    S-,    S-.    min    S-\    S-min   S-/    S-]    S-[   S-2    S-4    _    _
+  _        S-1    S-8    /      eql    S-7    left   right   S-9    S-3    ;      S-'    ent  _
+  _        S-grv  S-=    [      ]      S-5                   S-6    S-;   ,      .      '      _
+                         _      bksl   S-/                   S-min  S-0     _
+)
+
+
+;; 7. NUM LAYER (Based on the uploaded image)
+(deflayer num
+  _    /    9    8    7    S-8  _         _     _    _    _    _    _    _
+  _    -    3    2    1    S-=  _         _     _    _    S-e  lctl lalt _
+  _    x    6    5    4    S-5                  _    _    ,    .    lmet _
+                 _    _    _                    0    _    _
+)
+;; 9. NAV LAYER
+(deflayer nav
+  _    f5   C-pgup C-pgdn _    _    _         _    pgup home up   end  @src _
+  _    lalt lctl   lsft   @sln mlft _         _    pgdn left down rght bspc _
+  _    lmet pgup   pgdn   _    _                   C-z  @swb @swf menu _    _
+                          _  @gtb _                 _    _    _
+)
+
+;; 4. SWEDISH UPPER LAYER
+(deflayer swedishUpper
+  _        _      _      _      _      _      _      _      _      _      _      _      (unicode Ö) (unicode Å)
+  @cap     @a_m   _      _      _      _      _      _      _      _      _      _      _           _
+  _        _      _      _      _      _                    @b_m   _      (unicode Ä) _      _      _ 
+                                _      _      _                    spc    _      _
+)
