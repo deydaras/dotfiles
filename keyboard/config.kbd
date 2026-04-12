@@ -20,9 +20,11 @@
   j_m (tap-hold 200 200 h lctl)
   k_m (tap-hold 200 200 e lalt)
   p_m (tap-hold 200 200 d lalt)
-  l_m (tap-hold 200 200 i lmet)
-  spc (tap-hold 200 200 spc lsft)
-  cap (tap-hold-press 200 200 esc lctl)
+  l_m (tap-hold 200 200 i esc)
+  spc (tap-hold 200 200 spc lmet)
+  r_sf (tap-hold 200 200 r lsft)
+  a_sf (tap-hold 200 200 a lsft)
+  ;;cap (tap-hold-press 200 200 esc)
   
   ;; RENAMED ALIAS to avoid conflict with physical key name
   sft_sw (multi lsft (layer-toggle swedishUpper))
@@ -33,42 +35,42 @@
 
 (deflayer main
   ent  tab  m    @e_m c    p    q    f    o    u    , (unicode ö) (unicode å) ent
-  @cap  @a_m @s_m @d_m @f_m g    b    @j_m @k_m @l_m a    ent _ 
+  esc  @r_sf @s_m @d_m @f_m g    b    @j_m @k_m @l_m @a_sf  ent _ 
   @sft_sw z  x    v    w    @p_m    @b_m y    k    j    .    (unicode ä)  rsft
   lctl lmet lalt           @spc           up down 
 )
-
+ 
 (deflayer swedishUpper
   _    _    _    _    _    _    _    _    _    _    _ (unicode Ö) (unicode Å) _
-  @cap    @a_m    _    _    _    _    _    _    _    _    _    _  _ 
+  esc      _    _    _    _    _    _    _    _    _    _    _  _ 
   _    _    _    _    _    @p_m    @b_m    _    _    _    _    (unicode Ä)  _
   _    _    _              @spc              _    _
 )
 
 (deflayer char
   _    _    _    ent  _    _    S-1  S-3  eql  S-5  _    _    _    _
-  @cap    @a_m    S-2  S-5  _    _    S-=  /    S-;  min  S-min S-/  _
+  esc      _    S-2  S-5  _    _    S-=  /    S-;  min  S-min S-/  _
   _    _    _    _    _    @p_m    @b_m    S-grv S-8  S-2  S-6    ` _
   _    _    _              @spc              _    _
 )
 
 (deflayer subchar
   _    _    _    _    y    _    ]    [    S-,  S-.  S-\  _    _    _
-  @cap    @a_m    _    _    u    _    S-0  S-9  S-'    '  S-4  ;  _
+  esc      _    _    _    u    _    S-0  S-9  S-'    '  S-4  ;  _
   _    _    _    _    _    @p_m    @b_m    S-]  S-[  S-7  bksl  grv  _
   _    _    _              @spc              _    _
 )
 
 (deflayer num
-  _    _    _    _    _    _    .    4    5    6    _    _    _    _
-  @cap    @a_m    _    _    del    _    S-;  1    2    3    0    _    _
-  _    _    _    _    _   @p_m    @b_m    eql  S-=  S-8  /    _    _
+  _    _    _    _    _    _    .    1    2    3   S-;     _    _    _
+  esc      _    _    _    del    _    0   4    5    6    =    _    _
+  _    _    _    _    _   @p_m    @b_m       7    8    9  _    _    _
   _    _    _              @spc              _    _
 )
 
 (deflayer meta
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  @cap    @a_m    _    _    _    _    _    left rght _    _    _    _
+  esc      _    _    _    _    _    _    left rght _    _    _    _
   _    _    _    _    _   @p_m    @b_m    _   up down    _    _    _
   _    _    _              @spc           _    _
 )
